@@ -1,0 +1,87 @@
+\documentclass[a4paper,12pt,reqno]{article}
+
+% --------------------------------------------------------
+% Packages
+% --------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools,graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs,bm}
+\usepackage[margin=0.95in]{geometry}
+\usepackage{setspace}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float} % 支持图片浮点嵌入 e.g.,\begin{figure}[H]
+\usepackage{subfigure} % 支持多图
+\usepackage{cite}
+\usepackage{siunitx} % 支持各类正体单位 e.g.,\unit{\kg}(建议在数字和单位间插入\,以留出适当间隙)
+\usepackage{txfonts} % 支持正体希腊字母 e.g.,$\muup$ 注：添加该包会对默认字体有影响
+\usepackage{url} % bibTex支持引用网页
+
+% --------------------------------------------------------
+% Custom Commands
+% --------------------------------------------------------
+% \renewcommand{\rmdefault}{phv} % Arial
+% \renewcommand{\sfdefault}{phv} % Arial
+\renewcommand\thesection{\arabic {section}} % Section numbers start from 1
+% \renewcommand{\bibname}{References}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\DeclareUnicodeCharacter{2212}{-}
+
+% --------------------------------------------------------
+% Opening: Title and Author Names
+% --------------------------------------------------------
+\begin{document}
+
+\textsc{
+    \vspace{-3cm}
+    \begin{center}
+        \center\LARGE Queen's University Belfast \\[0.5cm]
+        \Large ELE8096 Wireless Sensor Systems \\[0.5cm]
+    \end{center} 
+}
+\textsc{
+    % \vspace{-1cm}
+    \begin{flushleft}
+        \Large Coursework1 \hfill
+        % \small Student: \ \ \ \ \ \ Zichi Zhang \ Student Number: 40299571\\
+        % \hfill Muzixiang Xiao \, \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 40344034\\
+        % \hfill Jiyu Zou \, \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 40344034\\
+        % \hfill Yuhang Zhang \, \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 40344034\\
+        % \hfill Chuao Zheng \, \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 40344034\\
+        % \hfill Yujie Yang \, \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 40344034
+        \large Group: 5
+    \end{flushleft}
+}
+
+\subsection*{zichizhang}
+\cite{NO2-A43F}
+\cite{EC4-20-NO2}
+\cite{price-EC4-20-NO2}
+\cite{price-NO2-A43F}
+\cite{Oizom-Nitrogen}
+\cite{Environmental}
+
+\subsection*{muzixiangxiao}
+\cite{SGX-4NH3-1000}
+\cite{SGX-7NH3-1000}
+\cite{Introduction}
+
+\subsection*{yuhangzhang}
+\cite{SO2}
+\cite{SO2-A4}
+\cite{SO2-D4}
+
+\subsection*{jiyuzhou}
+
+\subsection*{chuaozheng}
+
+\subsection*{yujieyang}
+
+\subsection*{part2}
+\cite{Basic_Information_about_NO2}
+
+\newpage
+
+\bibliographystyle{IEEEtran}
+\bibliography{References}
+\end{document}

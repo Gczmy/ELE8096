@@ -1,0 +1,98 @@
+\documentclass[a4paper,12pt,reqno]{report}
+
+% --------------------------------------------------------
+% Packages
+% --------------------------------------------------------
+\usepackage{mathtools,graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs,bm}
+\usepackage[margin=20mm]{geometry}
+\usepackage{setspace}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float} % 支持图片浮点嵌入 e.g.,\begin{figure}[H]
+\usepackage{subfigure} % 支持多图
+\usepackage{cite}
+
+% --------------------------------------------------------
+% Custom Colours
+% --------------------------------------------------------
+\renewcommand{\baselinestretch}{1.5}    % 1.5-line spacing
+\renewcommand{\rmdefault}{phv} % Arial
+\renewcommand{\sfdefault}{phv} % Arial
+\renewcommand\thesection{\arabic {section}} % Section numbers start from 1
+\renewcommand{\bibname}{References}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\DeclareUnicodeCharacter{2212}{-}
+\renewcommand{\thefootnote}{**} 
+
+% --------------------------------------------------------
+% Open Page
+% --------------------------------------------------------
+\begin{document}
+\input{./title.tex}
+
+% --------------------------------------------------------
+% Abstract
+% --------------------------------------------------------
+\vspace*{\fill}
+\begin{flushleft}
+    Team member roles:\\
+    Zichi Zhang\\
+    Muzixiang Xiao\\
+    Jiyu Zou\\
+    Yuhang Zhang\\
+    Chuao Zheng\\
+    Yujie Yang
+\end{flushleft}
+\vspace*{\fill}
+\thispagestyle{empty}
+
+% --------------------------------------------------------
+% Abstract
+% --------------------------------------------------------
+\begin{abstract}
+
+\end{abstract}
+
+% --------------------------------------------------------
+% Section 1: Introduction
+% --------------------------------------------------------
+\section{Introduction}
+\label{sec:Introduction}
+\cite{Basic_Information_about_NO2}. 
+\newpage
+
+% --------------------------------------------------------
+% Section 2: basic statistics
+% --------------------------------------------------------
+\section{basic statistics}
+\label{sec:basic statistics}
+
+% --------------------------------------------------------
+% Section 3: more advanced statistics
+% --------------------------------------------------------
+\section{more advanced statistics}
+\label{sec:more advanced statistics}
+% --------------------------------------------------------
+% Section 4: multi variable regression forecasting models, visualisation of results
+% --------------------------------------------------------
+\section{multi variable regression forecasting models, visualisation of results}
+\label{sec:multi variable regression forecasting models, visualisation of results}
+% --------------------------------------------------------
+% Section 5: model performance and discussion of results
+% --------------------------------------------------------
+\section{model performance and discussion of results}
+\label{sec:model performance and discussion of results}
+
+
+% --------------------------------------------------------
+% Section 6: Conclusions
+% --------------------------------------------------------
+\section{Conclusions}
+    
+\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{References}
+
+\end{document}

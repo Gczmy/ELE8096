@@ -19,11 +19,18 @@ humidity <- data[,'humidity']
 NO2_mean <- mean(NO2[1:10])
 for( i in 1:18) {
     NO2_mean <- append(NO2_mean,mean(NO2[(24*(i-1)+11):(24*(i-1)+11+23)]))
-    # Date_less <- append(NO2_mean,mean(NO2[(24*(i-1)+11):(24*(i-1)+11+23)]))
 }
 NO2_mean <- append(NO2_mean,mean(NO2[443:452]))
-# NO2_mean[1] <- NULL
 print(NO2_mean)
+
+# median
+NO2_median <- median(NO2[1:10])
+for( i in 1:18) {
+    NO2_median <- append(NO2_median,median(NO2[(24*(i-1)+11):(24*(i-1)+11+23)]))
+}
+NO2_median <- append(NO2_median,median(NO2[443:452]))
+print(NO2_median)
+
 # Linear Regression
 # -------------------------------------------
 # Date.numeric = as.numeric(Date)/(24*60*60)
@@ -44,4 +51,10 @@ x = 1:18
 plot(x,NO2_mean[2:19],col = "blue",main = "NO2 Regression",
 abline(lm(NO2_mean[2:19]~x)),cex = 1.3,pch = 16,xlab = "Date from 18/10/2018 to 06/11/2018",ylab = "NO2")# -------------------------------------------
 # 保存 png 图片
-pdf(file = "C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/linearregression.pdf")
+# pdf(file = "C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/linearregression.pdf")
+# median
+x = 1:18
+plot(x,NO2_median[2:19],col = "blue",main = "NO2 Regression",
+abline(lm(NO2_median[2:19]~x)),cex = 1.3,pch = 16,xlab = "Date from 18/10/2018 to 06/11/2018",ylab = "NO2")# -------------------------------------------
+# 保存 png 图片
+# pdf(file = "C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/linearregression.pdf")

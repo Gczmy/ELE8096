@@ -1,6 +1,7 @@
 # package
 # -------------------------------------------
 library(lubridate,warn.conflicts = FALSE)
+Sys.setlocale("LC_TIME", "English")
 
 # data from data.csv
 # -------------------------------------------

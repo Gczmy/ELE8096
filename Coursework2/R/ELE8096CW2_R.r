@@ -1,6 +1,8 @@
 # package
 # -------------------------------------------
-library(lubridate,warn.conflicts = FALSE)
+library(lubridate, warn.conflicts = FALSE)
+library(ggplot2)
+library(RColorBrewer)
 Sys.setlocale("LC_TIME", "English")
 
 # data from data.csv
@@ -13,7 +15,7 @@ Date <- dmy(data[, "Date"])
 PM25 <- data[, "PM2.5"]
 NO2 <- data[, "NO2"]
 O3 <- data[, "O3"]
-temperature <- data[1:5, "temperature"]
+temperature <- data[, "temperature"]
 humidity <- data[, "humidity"]
 
 # mean
@@ -63,10 +65,50 @@ Date_less <- append(Date_less, "2018-11-06")
 # print(result)
 
 # plot
-# # 生成图表
+# PM25
 # -------------------------------------------
-# plot(Date,NO2,col = "blue",main = "NO2 Regression",
-# abline(lm(NO2~Date)),cex = 1.3,pch = 16,xlab = "Date from 18/10/2018 to 06/11/2018",ylab = "NO2")
+plot(Date, PM25, col = "blue", main = "PM25 Regression",
+abline(lm(PM25 ~ Date)), cex = 1.3, pch = 16,
+xlab = "Date from 18/10/2018 to 06/11/2018", ylab = "PM2.5")
+plot(O3, PM25, col = "red", main = "PM25 Regression",
+abline(lm(PM25 ~ O3)), cex = 1.3, pch = 16, xlab = "O3", ylab = "PM2.5")
+plot(NO2, PM25, col = "#0a9233", main = "PM25 Regression",
+abline(lm(PM25 ~ NO2)), cex = 1.3, pch = 16, xlab = "NO2", ylab = "PM2.5")
+plot(temperature, PM25, col = "#c0bd1e", main = "PM25 Regression",
+abline(lm(PM25 ~ temperature)), cex = 1.3, pch = 16, xlab = "temperature", ylab = "PM2.5")
+plot(humidity, PM25, col = "#f0960f", main = "PM25 Regression",
+abline(lm(PM25 ~ humidity)), cex = 1.3, pch = 16, xlab = "humidity", ylab = "PM2.5")
+boxplot(O3, xlab = "PM2.5") # 箱线图
+
+# NO2
+# -------------------------------------------
+# plot(Date, NO2, col = "blue", main = "NO2 Regression",
+# abline(lm(NO2 ~ Date)), cex = 1.3, pch = 16,
+# xlab = "Date from 18/10/2018 to 06/11/2018", ylab = "NO2")
+# plot(O3, NO2, col = "red", main = "NO2 Regression",
+# abline(lm(NO2 ~ O3)), cex = 1.3, pch = 16, xlab = "O3", ylab = "NO2")
+# plot(PM25, NO2, col = "#0a9233", main = "NO2 Regression",
+# abline(lm(NO2 ~ PM25)), cex = 1.3, pch = 16, xlab = "PM2.5", ylab = "NO2")
+# plot(temperature, NO2, col = "#c0bd1e", main = "NO2 Regression",
+# abline(lm(NO2 ~ temperature)), cex = 1.3, pch = 16, xlab = "temperature", ylab = "NO2")
+# plot(humidity, NO2, col = "#f0960f", main = "NO2 Regression",
+# abline(lm(NO2 ~ humidity)), cex = 1.3, pch = 16, xlab = "humidity", ylab = "NO2")
+# boxplot(NO2) # 箱线图
+
+# O3
+# -------------------------------------------
+# plot(Date, O3, col = "blue", main = "O3 Regression",
+# abline(lm(O3 ~ Date)), cex = 1.3, pch = 16,
+# xlab = "Date from 18/10/2018 to 06/11/2018", ylab = "O3")
+# plot(NO2, O3, col = "red", main = "O3 Regression",
+# abline(lm(O3 ~ NO2)), cex = 1.3, pch = 16, xlab = "NO2", ylab = "O3")
+# plot(PM25, O3, col = "#0a9233", main = "O3 Regression",
+# abline(lm(O3 ~ PM25)), cex = 1.3, pch = 16, xlab = "PM2.5", ylab = "O3")
+# plot(temperature, O3, col = "#c0bd1e", main = "O3 Regression",
+# abline(lm(O3 ~ temperature)), cex = 1.3, pch = 16, xlab = "temperature", ylab = "O3")
+# plot(humidity, O3, col = "#f0960f", main = "O3 Regression",
+# abline(lm(O3 ~ humidity)), cex = 1.3, pch = 16, xlab = "humidity", ylab = "O3")
+# boxplot(O3) # 箱线图
 
 # mean
 # -------------------------------------------
@@ -74,19 +116,7 @@ Date_less <- append(Date_less, "2018-11-06")
 # plot(x,NO2_mean[1:20],col = "blue",main = "NO2 Regression",
 # abline(lm(NO2_mean[1:20]~x)),cex = 1.3,pch = 16,xlab = "Date from 18/10/2018 to 06/11/2018",ylab = "NO2")
 
-# mean and predict
-# -------------------------------------------
-# NO2_mean <- append(NO2_mean, result)
-# plot(Date_less, NO2_mean, col = "blue", main = "NO2 Regression",
-# abline(lm(NO2_mean[1:20]~Date_less[1:20])), cex = 1.3, pch = 16, xlab = "Date from 18/10/2018 to 06/11/2018",ylab = "NO2")
-
 # median
-# -------------------------------------------
-plot(Date_less[1:20], NO2_median[1:20], col = "blue", main = "NO2 Regression",
-abline(lm(NO2_median[1:20]~Date_less[1:20])), cex = 1.3, pch = 16, xlab = "Date from 18/10/2018 to 06/11/2018",ylab = "NO2")
-
-# median and predict
-# -------------------------------------------
-# NO2_median <- append(NO2_median, result)
-# plot(Date_less, NO2_median, col = "blue", main = "NO2 Regression",
+# # -------------------------------------------
+# plot(Date_less[1:20], NO2_median[1:20], col = "blue",
 # abline(lm(NO2_median[1:20]~Date_less[1:20])), cex = 1.3, pch = 16, xlab = "Date from 18/10/2018 to 06/11/2018",ylab = "NO2")

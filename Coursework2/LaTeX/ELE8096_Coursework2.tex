@@ -11,7 +11,7 @@
 \usepackage{setspace}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{float} % 支持图片浮点嵌入 e.g.,\begin{figure}[H]
-\usepackage{subfigure} % 支持多图
+\usepackage{subcaption} % 支持多图
 \usepackage{cite}
 
 % --------------------------------------------------------
@@ -68,12 +68,96 @@
 % --------------------------------------------------------
 \section{basic statistics}
 \label{sec:basic statistics}
+\subsection{PM2.5}
+\begin{figure}[H]
+    \centering
+    \vspace{-0.35cm}
+    \includegraphics[width=0.7\linewidth]{figures/PM25_box.pdf}
+    \caption{PM2.5 box}
+\end{figure}
+\subsection{NO2}
+\begin{figure}[H]
+    \centering
+    \vspace{-0.35cm}
+    \includegraphics[width=0.7\linewidth]{figures/NO2_box.pdf}
+    \caption{NO2 box}
+\end{figure}
+\subsection{O3}
+\begin{figure}[H]
+    \centering
+    \vspace{-0.35cm}
+    \includegraphics[width=0.7\linewidth]{figures/O3_box.pdf}
+    \caption{O3 box}
+\end{figure}
 
 % --------------------------------------------------------
 % Section 3: more advanced statistics
 % --------------------------------------------------------
 \section{more advanced statistics}
 \label{sec:more advanced statistics}
+\subsection{PM2.5}
+% \begin{figure}[H]
+%     \centering
+%     \vspace{-0.35cm}
+%     \includegraphics[width=0.7\linewidth]{figures/PM25_Date_Regression.pdf}
+%     % \caption{}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \vspace{-0.35cm}
+%     \includegraphics[width=0.7\linewidth]{figures/PM25_NO2_Regression.pdf}
+%     % \caption{}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \vspace{-0.35cm}
+%     \includegraphics[width=0.7\linewidth]{figures/PM25_O3_Regression.pdf}
+%     % \caption{}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \vspace{-0.35cm}
+%     \includegraphics[width=0.7\linewidth]{figures/PM25_temperature_Regression.pdf}
+%     % \caption{}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \vspace{-0.35cm}
+%     \includegraphics[width=0.7\linewidth]{figures/PM25_humidity_Regression.pdf}
+%     % \caption{}
+% \end{figure}
+\begin{figure}[H]
+    \centering
+    \vspace{-0.35cm}
+    \includegraphics[width=0.4\linewidth]{figures/PM25_Date_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/PM25_NO2_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/PM25_O3_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/PM25_temperature_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/PM25_humidity_Regression.pdf}
+    % \caption{}
+\end{figure}
+\subsection{NO2}
+\begin{figure}[H]
+    \centering
+    \vspace{-0.35cm}
+    \includegraphics[width=0.4\linewidth]{figures/NO2_Date_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/NO2_PM25_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/NO2_O3_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/NO2_temperature_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/NO2_humidity_Regression.pdf}
+    % \caption{}
+\end{figure}
+\subsection{O3}
+\begin{figure}[H]
+    \centering
+    \vspace{-0.35cm}
+    \includegraphics[width=0.4\linewidth]{figures/O3_Date_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/O3_PM25_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/O3_NO2_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/O3_temperature_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/O3_humidity_Regression.pdf}
+    % \caption{}
+\end{figure}
 % --------------------------------------------------------
 % Section 4: multi variable regression forecasting models, visualisation of results
 % --------------------------------------------------------

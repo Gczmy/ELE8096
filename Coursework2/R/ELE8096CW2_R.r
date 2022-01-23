@@ -67,49 +67,100 @@ Date_less <- append(Date_less, "2018-11-06")
 # plot
 # PM25
 # -------------------------------------------
-plot(Date, PM25, col = "blue", main = "PM25 Regression",
+# par(mfrow=c(2,2))
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/PM25_Date_Regression.pdf",width=8,height=8)
+plot(Date, PM25, col = "blue", main = "PM2.5 Date Regression",
 abline(lm(PM25 ~ Date)), cex = 1.3, pch = 16,
 xlab = "Date from 18/10/2018 to 06/11/2018", ylab = "PM2.5")
-plot(O3, PM25, col = "red", main = "PM25 Regression",
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/PM25_O3_Regression.pdf",width=8,height=8)
+plot(O3, PM25, col = "red", main = "PM2.5 O3 Regression",
 abline(lm(PM25 ~ O3)), cex = 1.3, pch = 16, xlab = "O3", ylab = "PM2.5")
-plot(NO2, PM25, col = "#0a9233", main = "PM25 Regression",
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/PM25_NO2_Regression.pdf",width=8,height=8)
+plot(NO2, PM25, col = "#0a9233", main = "PM2.5 NO2 Regression",
 abline(lm(PM25 ~ NO2)), cex = 1.3, pch = 16, xlab = "NO2", ylab = "PM2.5")
-plot(temperature, PM25, col = "#c0bd1e", main = "PM25 Regression",
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/PM25_temperature_Regression.pdf",width=8,height=8)
+plot(temperature, PM25, col = "#c0bd1e", main = "PM2.5 temperature Regression",
 abline(lm(PM25 ~ temperature)), cex = 1.3, pch = 16, xlab = "temperature", ylab = "PM2.5")
-plot(humidity, PM25, col = "#f0960f", main = "PM25 Regression",
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/PM25_humidity_Regression.pdf",width=8,height=8)
+plot(humidity, PM25, col = "#f0960f", main = "PM2.5 humidity Regression",
 abline(lm(PM25 ~ humidity)), cex = 1.3, pch = 16, xlab = "humidity", ylab = "PM2.5")
-boxplot(O3, xlab = "PM2.5") # 箱线图
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/PM25_box.pdf",width=8,height=8)
+boxplot(O3,  main = "PM2.5") # 箱线图
+dev.off()
 
 # NO2
 # -------------------------------------------
-# plot(Date, NO2, col = "blue", main = "NO2 Regression",
-# abline(lm(NO2 ~ Date)), cex = 1.3, pch = 16,
-# xlab = "Date from 18/10/2018 to 06/11/2018", ylab = "NO2")
-# plot(O3, NO2, col = "red", main = "NO2 Regression",
-# abline(lm(NO2 ~ O3)), cex = 1.3, pch = 16, xlab = "O3", ylab = "NO2")
-# plot(PM25, NO2, col = "#0a9233", main = "NO2 Regression",
-# abline(lm(NO2 ~ PM25)), cex = 1.3, pch = 16, xlab = "PM2.5", ylab = "NO2")
-# plot(temperature, NO2, col = "#c0bd1e", main = "NO2 Regression",
-# abline(lm(NO2 ~ temperature)), cex = 1.3, pch = 16, xlab = "temperature", ylab = "NO2")
-# plot(humidity, NO2, col = "#f0960f", main = "NO2 Regression",
-# abline(lm(NO2 ~ humidity)), cex = 1.3, pch = 16, xlab = "humidity", ylab = "NO2")
-# boxplot(NO2) # 箱线图
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/NO2_Date_Regression.pdf",width=8,height=8)
+plot(Date, NO2, col = "blue", main = "NO2 Date Regression",
+abline(lm(NO2 ~ Date)), cex = 1.3, pch = 16,
+xlab = "Date from 18/10/2018 to 06/11/2018", ylab = "NO2")
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/NO2_O3_Regression.pdf",width=8,height=8)
+plot(O3, NO2, col = "red", main = "NO2 O3 Regression",
+abline(lm(NO2 ~ O3)), cex = 1.3, pch = 16, xlab = "O3", ylab = "NO2")
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/NO2_PM25_Regression.pdf",width=8,height=8)
+plot(PM25, NO2, col = "#0a9233", main = "NO2 PM2.5 Regression",
+abline(lm(NO2 ~ PM25)), cex = 1.3, pch = 16, xlab = "PM2.5", ylab = "NO2")
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/NO2_temperature_Regression.pdf",width=8,height=8)
+plot(temperature, NO2, col = "#c0bd1e", main = "NO2 temperature Regression",
+abline(lm(NO2 ~ temperature)), cex = 1.3, pch = 16, xlab = "temperature", ylab = "NO2")
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/NO2_humidity_Regression.pdf",width=8,height=8)
+plot(humidity, NO2, col = "#f0960f", main = "NO2 humidity Regression",
+abline(lm(NO2 ~ humidity)), cex = 1.3, pch = 16, xlab = "humidity", ylab = "NO2")
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/NO2_box.pdf",width=8,height=8)
+boxplot(NO2,  main= "NO2") # 箱线图
+dev.off()
 
 # O3
 # -------------------------------------------
-# plot(Date, O3, col = "blue", main = "O3 Regression",
-# abline(lm(O3 ~ Date)), cex = 1.3, pch = 16,
-# xlab = "Date from 18/10/2018 to 06/11/2018", ylab = "O3")
-# plot(NO2, O3, col = "red", main = "O3 Regression",
-# abline(lm(O3 ~ NO2)), cex = 1.3, pch = 16, xlab = "NO2", ylab = "O3")
-# plot(PM25, O3, col = "#0a9233", main = "O3 Regression",
-# abline(lm(O3 ~ PM25)), cex = 1.3, pch = 16, xlab = "PM2.5", ylab = "O3")
-# plot(temperature, O3, col = "#c0bd1e", main = "O3 Regression",
-# abline(lm(O3 ~ temperature)), cex = 1.3, pch = 16, xlab = "temperature", ylab = "O3")
-# plot(humidity, O3, col = "#f0960f", main = "O3 Regression",
-# abline(lm(O3 ~ humidity)), cex = 1.3, pch = 16, xlab = "humidity", ylab = "O3")
-# boxplot(O3) # 箱线图
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/O3_Date_Regression.pdf",width=8,height=8)
+plot(Date, O3, col = "blue", main = "O3 Date Regression",
+abline(lm(O3 ~ Date)), cex = 1.3, pch = 16,
+xlab = "Date from 18/10/2018 to 06/11/2018", ylab = "O3")
+dev.off()
 
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/O3_NO2_Regression.pdf",width=8,height=8)
+plot(NO2, O3, col = "red", main = "O3 NO2 Regression",
+abline(lm(O3 ~ NO2)), cex = 1.3, pch = 16, xlab = "NO2", ylab = "O3")
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/O3_PM25_Regression.pdf",width=8,height=8)
+plot(PM25, O3, col = "#0a9233", main = "O3 PM2.5 Regression",
+abline(lm(O3 ~ PM25)), cex = 1.3, pch = 16, xlab = "PM2.5", ylab = "O3")
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/O3_temperature_Regression.pdf",width=8,height=8)
+plot(temperature, O3, col = "#c0bd1e", main = "O3 temperature Regression",
+abline(lm(O3 ~ temperature)), cex = 1.3, pch = 16, xlab = "temperature", ylab = "O3")
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/O3_humidity_Regression.pdf",width=8,height=8)
+plot(humidity, O3, col = "#f0960f", main = "O3 humidity Regression",
+abline(lm(O3 ~ humidity)), cex = 1.3, pch = 16, xlab = "humidity", ylab = "O3")
+dev.off()
+
+pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/O3_box.pdf",width=8,height=8)
+boxplot(O3,  main = "O3") # 箱线图
+dev.off()
 # mean
 # -------------------------------------------
 # x = 1:18

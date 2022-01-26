@@ -9,10 +9,11 @@
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs,bm}
 \usepackage[margin=20mm]{geometry}
 \usepackage{setspace}
-\usepackage[table,xcdraw]{xcolor}
+\usepackage[table,xcdraw,svgnames]{xcolor}
 \usepackage{float} % 支持图片浮点嵌入 e.g.,\begin{figure}[H]
 \usepackage{subcaption} % 支持多图
 \usepackage{cite}
+\usepackage{listings}
 
 % --------------------------------------------------------
 % Custom Colours
@@ -25,6 +26,22 @@
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \DeclareUnicodeCharacter{2212}{-}
 \renewcommand{\thefootnote}{**} 
+% --------------------------------------------------------
+% Custom Code - R
+% --------------------------------------------------------
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{DarkGreen},
+    otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE},
+    deletekeywords={data,frame,length,as,character},
+    % keywordstyle=\color{blue},
+    commentstyle=\color{DarkGreen},
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=-5pt, % this defines how far the numbers are from the text
+}
 
 % --------------------------------------------------------
 % Open Page
@@ -169,9 +186,36 @@
     \centering
     \vspace{-0.35cm}
     \includegraphics[width=0.4\linewidth]{figures/mul_reg_scatterplotMatrix.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_qqPlot.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_crPlots.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_adjr2.pdf}
+    % \caption{}
+\end{figure}
+
+\subsection{PM2.5}
+\begin{figure}[H]
+    \centering
+    \vspace{-0.35cm}
+    \includegraphics[width=0.4\linewidth]{figures/mul_reg_qqPlot_PM25.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/mul_reg_crPlots_PM25.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/mul_reg_adjr2_PM25.pdf}
+    % \caption{}
+\end{figure}
+
+\subsection{NO2}
+\begin{figure}[H]
+    \centering
+    \vspace{-0.35cm}
+    \includegraphics[width=0.4\linewidth]{figures/mul_reg_qqPlot_NO2.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/mul_reg_crPlots_NO2.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/mul_reg_adjr2_NO2.pdf}
+    % \caption{}
+\end{figure}
+
+\subsection{O3}
+\begin{figure}[H]
+    \centering
+    \vspace{-0.35cm}
+    \includegraphics[width=0.4\linewidth]{figures/mul_reg_qqPlot_O3.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/mul_reg_crPlots_O3.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/mul_reg_adjr2_O3.pdf}
     % \caption{}
 \end{figure}
 
@@ -182,6 +226,20 @@
 % --------------------------------------------------------
 \section{model performance and discussion of results}
 \label{sec:model performance and discussion of results}
+We can use the function "outlierTest" to find the outliers in data. The output is:
+\begin{lstlisting}
+    > outlierTest(fit_PM25)
+        rstudent unadjusted p-value Bonferroni p
+    452 8.585952         1.5164e-16   6.8539e-14
+    1   5.212401         2.8566e-07   1.2912e-04
+    > outlierTest(fit_NO2)
+        rstudent unadjusted p-value Bonferroni p
+    452 4.611271         5.2351e-06    0.0023663
+    > outlierTest(fit_O3)
+        rstudent unadjusted p-value Bonferroni p
+    452 5.543088         5.0943e-08   2.3026e-05
+\end{lstlisting}
+Then, we delete the outliers and make regression again, the model performance will be better.
 
 
 % --------------------------------------------------------

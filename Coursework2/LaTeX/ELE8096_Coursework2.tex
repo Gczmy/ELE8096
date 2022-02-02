@@ -70,6 +70,17 @@
 % --------------------------------------------------------
 \begin{abstract}
 
+    Data analysing and prediction has become one of the most useful tools recently, 
+    trend of data could be deduced by applying linear regression. 
+
+    For group project, it aims to analyse data of concentration of pollutants (NO3, PM2.5, O3) in Belfast for each hour, 
+    besides, the relationship between each pollutant and other parameters like humidity and temperature should be revealed after analysing data. R is used for data processing and trend prediction which will be discussed on following paragraphs. 
+    
+    The distribution of each pollutant will be analysed firstly in section 1. 
+    
+    In section 2, the correlation between each pollutant will be discussed. 
+    
+    After that, prediction of trend of data using linear regression with R is presented in section 3 and finally the conclusion will be made at the end of the report. 
 \end{abstract}
 
 % --------------------------------------------------------
@@ -77,6 +88,7 @@
 % --------------------------------------------------------
 \section{Introduction}
 \label{sec:Introduction}
+Data analysing and prediction has become one of the most useful tools recently, trend of data could be deduced by applying linear regression. For group project, it aims to analyse data of concentration of pollutants (NO3, PM2.5, O3) in Belfast for each hour, besides, the relationship between each pollutant and other parameters like humidity and temperature should be revealed after analysing data. R is used for data processing and trend prediction which will be discussed on following paragraphs. The distribution of each pollutant will be analysed firstly in section 1. In section 2, the correlation between each pollutant will be discussed. After that, prediction of trend of data using linear regression with R is presented in section 3 and finally the conclusion will be made at the end of the report. 
 \cite{Basic_Information_about_NO2}. 
 \newpage
 
@@ -94,6 +106,11 @@
     \includegraphics[width=0.4\linewidth]{figures/O3_box.pdf}
     \caption{PM2.5 box}
 \end{figure}
+Observing the boxplot of PM2.5, you will find that the median corresponding to the middle line of the box is 6.3, which means that the concentration of 6.3 reflects the average level of PM2.5 pollutants, and the upper and lower limits of the box represent PM2. 5's top four and bottom four. This shows that the concentration of PM2.5 pollutants mostly fluctuates from 7.1 to 5.9. There are two lines above and below the box representing the maximum value of 9.43 and the minimum value of 5.09, and there are five points above the maximum line that are out of range. These five points are outliers.
+
+Observing the boxplot of NO2, you will find that the median corresponding to the middle line of the box is 44, which means that the concentration of 44 reflects the average level of NO2 pollutants, and the upper and lower limits of the box represent the upper four-digit fraction of NO2 respectively. and the next four digits. This shows that the concentration of NO2 pollutants mostly fluctuates from 31 to 66. There are two lines above and below the box representing the maximum value of 114.65 and the minimum value of 5.97, and there are three points above the maximum line that are out of range. These three points are outliers.
+
+Observing the boxplot of O3, you will find that the median corresponding to a line in the middle of the box is 40, then it can be shown that the concentration of 40 reflects the average level of O3 pollutants, and the upper and lower limits of the box represent the O3. Upper four-digit score and lower four-digit score. This shows that the concentration of O3 pollutants mostly fluctuates from 18 to 56. There are two lines above and below the box representing the maximum value of 98.52 and the minimum value of 0.35. There are two points above the maximum line that are out of range, which are outliers.
 % \subsection{NO2}
 % \begin{figure}[H]
 %     \centering
@@ -114,80 +131,93 @@
 % --------------------------------------------------------
 \section{more advanced statistics}
 \label{sec:more advanced statistics}
-\subsection{PM2.5}
-% \begin{figure}[H]
-%     \centering
-%     \vspace{-0.35cm}
-%     \includegraphics[width=0.7\linewidth]{figures/PM25_Date_Regression.pdf}
-%     % \caption{}
-% \end{figure}
-% \begin{figure}[H]
-%     \centering
-%     \vspace{-0.35cm}
-%     \includegraphics[width=0.7\linewidth]{figures/PM25_NO2_Regression.pdf}
-%     % \caption{}
-% \end{figure}
-% \begin{figure}[H]
-%     \centering
-%     \vspace{-0.35cm}
-%     \includegraphics[width=0.7\linewidth]{figures/PM25_O3_Regression.pdf}
-%     % \caption{}
-% \end{figure}
-% \begin{figure}[H]
-%     \centering
-%     \vspace{-0.35cm}
-%     \includegraphics[width=0.7\linewidth]{figures/PM25_temperature_Regression.pdf}
-%     % \caption{}
-% \end{figure}
-% \begin{figure}[H]
-%     \centering
-%     \vspace{-0.35cm}
-%     \includegraphics[width=0.7\linewidth]{figures/PM25_humidity_Regression.pdf}
-%     % \caption{}
-% \end{figure}
-\begin{figure}[H]
-    \centering
-    \vspace{-0.35cm}
-    \includegraphics[width=0.4\linewidth]{figures/PM25_Date_Regression.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/PM25_NO2_Regression.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/PM25_O3_Regression.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/PM25_temperature_Regression.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/PM25_humidity_Regression.pdf}
-    % \caption{}
-\end{figure}
-\subsection{NO2}
-\begin{figure}[H]
-    \centering
-    \vspace{-0.35cm}
-    \includegraphics[width=0.4\linewidth]{figures/NO2_Date_Regression.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/NO2_PM25_Regression.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/NO2_O3_Regression.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/NO2_temperature_Regression.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/NO2_humidity_Regression.pdf}
-    % \caption{}
-\end{figure}
-\subsection{O3}
-\begin{figure}[H]
-    \centering
-    \vspace{-0.35cm}
-    \includegraphics[width=0.4\linewidth]{figures/O3_Date_Regression.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/O3_PM25_Regression.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/O3_NO2_Regression.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/O3_temperature_Regression.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/O3_humidity_Regression.pdf}
-    % \caption{}
-\end{figure}
-% --------------------------------------------------------
-% Section 4: multi variable regression forecasting models, visualisation of results
-% --------------------------------------------------------
-\section{multi variable regression forecasting models, visualisation of results}
-\label{sec:multi variable regression forecasting models, visualisation of results}
 \begin{figure}[H]
     \centering
     \vspace{-0.35cm}
     \includegraphics[width=0.4\linewidth]{figures/mul_reg_scatterplotMatrix.pdf}
     % \caption{}
 \end{figure}
+
+\subsection{NO2}
+\begin{figure}[H]
+    \centering
+    \vspace{-0.35cm}
+    \includegraphics[width=0.4\linewidth]{figures/NO2_PM25_Regression.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/NO2_O3_Regression.pdf}
+    % \caption{}
+\end{figure}
+The plots show a negative trend between NO2 and O3. While the trend is less clear between NO2 and PM2.5, there is a slight positive association.
+That is, more O3 is associated with a lower NO2, and higher PM2.5 is associated with a higher NO2.
+\\
+We can use ``cor'' command in R to calculate the correlation with two variables below:
+\begin{lstlisting}
+    > cor(data$NO2, data$PM2.5)
+    [1] 0.1036955
+    > cor(data$NO2, data$O3)   
+    [1] -0.6475529
+\end{lstlisting}
+The calculation results show the same conclusion as the image, 
+the correlation between NO2 and PM2.5 is only 0.1036955 which means a slight positive association, 
+and the correlation between NO2 and O3 is -0.6475529 which shows there is a negative trend.
+\\
+We have the formula
+\begin{equation}
+    R^2=1-\frac{SSE}{SST}
+\end{equation}
+By using ``summary'' command in R, we can get the value of $R^2$ to show the predict model good or not.
+We denote the modoel NO2 $\sim$ O3 with model1 and the modoel NO2 $\sim$ PM2.5 with model2, and build a predict model by ``lm'' command in R:
+\begin{lstlisting}
+    > model1 = lm(NO2 ~ O3, data=data)
+    > summary(model1)
+
+    Call:
+    lm(formula = NO2 ~ O3, data = data)
+    ... ...
+    Multiple R-squared:  0.4193,    Adjusted R-squared:  0.418
+    ... ...
+
+    > model2 = lm(NO2 ~ PM2.5, data=data)
+    > summary(model2)
+
+    Call:
+    lm(formula = NO2 ~ PM2.5, data = data)
+    ... ...
+    Multiple R-squared:  0.01075,   Adjusted R-squared:  0.008554 
+    ... ...
+\end{lstlisting}
+These show that the $R^2$ of model1 is 0.4193, and the $R^2$ of model2 is 0.01075 which means model1 is much better than model2.
+% --------------------------------------------------------
+% Section 4: multi variable regression forecasting models, visualisation of results
+% --------------------------------------------------------
+\section{multi variable regression forecasting models, visualisation of results}
+\label{sec:multi variable regression forecasting models, visualisation of results}
+We denote the model NO2 $\sim$ O3 + PM2.5 with model3, and build a predict model by ``lm'' command in R and show the results by ``summary'' command:
+\begin{lstlisting}
+    > model3 = lm(NO2 ~ O3 + PM2.5, data=data)
+    > summary(model3)
+
+    Call:
+    lm(formula = NO2 ~ O3 + PM2.5, data = data)
+
+    Residuals:
+        Min      1Q  Median      3Q     Max
+    -54.701 -11.939  -0.712  12.328  56.725
+
+    Coefficients:
+                Estimate Std. Error t value Pr(>|t|)
+    (Intercept) 30.72543    5.04722   6.088 2.46e-09 ***
+    O3          -0.82857    0.03827 -21.649  < 2e-16 ***
+    PM2.5        7.54685    0.79694   9.470  < 2e-16 ***
+    ---
+    Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+    Residual standard error: 17.7 on 449 degrees of freedom
+    Multiple R-squared:  0.516,     Adjusted R-squared:  0.5138
+    F-statistic: 239.3 on 2 and 449 DF,  p-value: < 2.2e-16
+\end{lstlisting}
+The results show that the $R^2$ of model3 is 0.516 which is larger than the model1 and model2. 
+And the stars of O3 and PM2.5 both are three stars which means they both are very significant to this model.
+The prediction performance is improved by using multi variable regression forecasting model.
 
 \subsection{PM2.5}
 \begin{figure}[H]
@@ -239,6 +269,9 @@ We can use the function "outlierTest" to find the outliers in data. The output i
         rstudent unadjusted p-value Bonferroni p
     452 5.543088         5.0943e-08   2.3026e-05
 \end{lstlisting}
+
+
+
 Then, we delete the outliers and make regression again, the model performance will be better.
 
 

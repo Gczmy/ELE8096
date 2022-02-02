@@ -95,7 +95,7 @@ abline(lm(PM25 ~ humidity)), cex = 1.3, pch = 16, xlab = "humidity", ylab = "PM2
 dev.off()
 
 pdf("C:/Users/zzc/Desktop/Queen's/ELE8096/Coursework2/R/figures/PM25_box.pdf",width=8,height=8)
-boxplot(O3,  main = "PM2.5") # 箱线图
+boxplot(PM25,  main = "PM2.5") # 箱线图
 dev.off()
 
 # NO2

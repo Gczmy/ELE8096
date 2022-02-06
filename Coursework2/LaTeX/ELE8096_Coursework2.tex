@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt,reqno]{report}
+\documentclass[a4paper,11pt,reqno]{report}
 
 % --------------------------------------------------------
 % Packages
@@ -14,6 +14,8 @@
 \usepackage{subcaption} % 支持多图
 \usepackage{cite}
 \usepackage{listings}
+\usepackage{tabularx}
+\usepackage{url} % bibTex支持引用网页
 
 % --------------------------------------------------------
 % Custom Colours
@@ -52,35 +54,14 @@
 % --------------------------------------------------------
 % Abstract
 % --------------------------------------------------------
-\vspace*{\fill}
-\begin{flushleft}
-    Team member roles:\\
-    Zichi Zhang\\
-    Muzixiang Xiao\\
-    Jiyu Zou\\
-    Yuhang Zhang\\
-    Chuao Zheng\\
-    Yujie Yang
-\end{flushleft}
-\vspace*{\fill}
-\thispagestyle{empty}
-
-% --------------------------------------------------------
-% Abstract
-% --------------------------------------------------------
 \begin{abstract}
-
     Data analysing and prediction has become one of the most useful tools recently, 
     trend of data could be deduced by applying linear regression. 
-
     For group project, it aims to analyse data of concentration of pollutants (NO3, PM2.5, O3) in Belfast for each hour, 
     besides, the relationship between each pollutant and other parameters like humidity and temperature should be revealed after analysing data. R is used for data processing and trend prediction which will be discussed on following paragraphs. 
-    
-    The distribution of each pollutant will be analysed firstly in section 1. 
-    
-    In section 2, the correlation between each pollutant will be discussed. 
-    
-    After that, prediction of trend of data using linear regression with R is presented in section 3 and finally the conclusion will be made at the end of the report. 
+    The distribution of each pollutant will be analysed firstly in section 2. 
+    In section 3, the correlation between each pollutant will be discussed. 
+    After that, prediction of trend of data using linear regression with R is presented in section 4, we build three models to compare the performance of models. In section 5, the model performance and the results are discussed. And find that multi variables regression as the model is better. Finally the conclusion will be made at the end of the report. 
 \end{abstract}
 
 % --------------------------------------------------------
@@ -88,8 +69,16 @@
 % --------------------------------------------------------
 \section{Introduction}
 \label{sec:Introduction}
-Data analysing and prediction has become one of the most useful tools recently, trend of data could be deduced by applying linear regression. For group project, it aims to analyse data of concentration of pollutants (NO3, PM2.5, O3) in Belfast for each hour, besides, the relationship between each pollutant and other parameters like humidity and temperature should be revealed after analysing data. R is used for data processing and trend prediction which will be discussed on following paragraphs. The distribution of each pollutant will be analysed firstly in section 1. In section 2, the correlation between each pollutant will be discussed. After that, prediction of trend of data using linear regression with R is presented in section 3 and finally the conclusion will be made at the end of the report. 
-\cite{Basic_Information_about_NO2}. 
+As one of the most developed countries, UK spends a lot of energy per year, such as coal and natural gas. These energy guarantee the daily life of the city which also lead to air pollution. To ensure that people have a healthy environment, the detection of air quality is becoming more and more important, and the analysis of air quality data is the most critical part of it.
+\\
+\\
+Linear regression is a popular analytical method in the field of data analysis. It is an attempt to model the relationship between two variables by fitting a linear equation to observed data, where one variable is an explanatory variable and the other is a dependent variable. The advantage of regression analysis is that it can allow you to essentially crunch the data to help to make better decisions for currently and future.
+\\
+\\
+The regression method of forecasting means investigating on the relationships between data points, which help to predict data in the short and long term. Also, it allows people to understand how different variables impact on the trend of data predicted.
+\\
+\\
+In this paper, a data set containing air quality is analyzed using linear regression. This data was collected in Belfast and it contains concentration of PM2.5, NO2, 03, and related temperature and humidity which collected via a multi-sensor platform (sensor system) each hour. .
 \newpage
 
 % --------------------------------------------------------
@@ -104,13 +93,17 @@ Data analysing and prediction has become one of the most useful tools recently, 
     \includegraphics[width=0.4\linewidth]{figures/PM25_box.pdf}
     \includegraphics[width=0.4\linewidth]{figures/NO2_box.pdf}
     \includegraphics[width=0.4\linewidth]{figures/O3_box.pdf}
-    \caption{PM2.5 box}
+    \caption{boxplot}
 \end{figure}
-Observing the boxplot of PM2.5, you will find that the median corresponding to the middle line of the box is 6.3, which means that the concentration of 6.3 reflects the average level of PM2.5 pollutants, and the upper and lower limits of the box represent PM2. 5's top four and bottom four. This shows that the concentration of PM2.5 pollutants mostly fluctuates from 7.1 to 5.9. There are two lines above and below the box representing the maximum value of 9.43 and the minimum value of 5.09, and there are five points above the maximum line that are out of range. These five points are outliers.
-
+Observing the boxplot of PM2.5, it is obvious that the median corresponding to the middle line of the box is 6.3, which means that the concentration of 6.3 is the average level of PM2.5 pollutants, and the upper and lower limits of the box represent one fourth and three fourth of the value of concentration of PM2.5 in the data set. This shows that the concentration of PM2.5 pollutants mostly fluctuates from 7.1 to 5.9. There are two lines above and below the box representing the maximum value of 9.43 and the minimum value of 5.09, and there are five points above the maximum line that are out of range. These five points are outliers.
+\\
+\\
 Observing the boxplot of NO2, you will find that the median corresponding to the middle line of the box is 44, which means that the concentration of 44 reflects the average level of NO2 pollutants, and the upper and lower limits of the box represent the upper four-digit fraction of NO2 respectively. and the next four digits. This shows that the concentration of NO2 pollutants mostly fluctuates from 31 to 66. There are two lines above and below the box representing the maximum value of 114.65 and the minimum value of 5.97, and there are three points above the maximum line that are out of range. These three points are outliers.
-
+\\
+\\
 Observing the boxplot of O3, you will find that the median corresponding to a line in the middle of the box is 40, then it can be shown that the concentration of 40 reflects the average level of O3 pollutants, and the upper and lower limits of the box represent the O3. Upper four-digit score and lower four-digit score. This shows that the concentration of O3 pollutants mostly fluctuates from 18 to 56. There are two lines above and below the box representing the maximum value of 98.52 and the minimum value of 0.35. There are two points above the maximum line that are out of range, which are outliers.
+
+% \cite{Linear}
 % \subsection{NO2}
 % \begin{figure}[H]
 %     \centering
@@ -131,14 +124,6 @@ Observing the boxplot of O3, you will find that the median corresponding to a li
 % --------------------------------------------------------
 \section{more advanced statistics}
 \label{sec:more advanced statistics}
-\begin{figure}[H]
-    \centering
-    \vspace{-0.35cm}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_scatterplotMatrix.pdf}
-    % \caption{}
-\end{figure}
-
-\subsection{NO2}
 \begin{figure}[H]
     \centering
     \vspace{-0.35cm}
@@ -165,7 +150,7 @@ We have the formula
     R^2=1-\frac{SSE}{SST}
 \end{equation}
 By using ``summary'' command in R, we can get the value of $R^2$ to show the predict model good or not.
-We denote the modoel NO2 $\sim$ O3 with model1 and the modoel NO2 $\sim$ PM2.5 with model2, and build a predict model by ``lm'' command in R:
+We denote the modoel NO2 $\sim$ O3 with model1 and the modoel NO2 $\sim$ PM2.5 with model2, and a predict model is built by ``lm'' command in R:
 \begin{lstlisting}
     > model1 = lm(NO2 ~ O3, data=data)
     > summary(model1)
@@ -174,7 +159,6 @@ We denote the modoel NO2 $\sim$ O3 with model1 and the modoel NO2 $\sim$ PM2.5 w
     lm(formula = NO2 ~ O3, data = data)
     ... ...
     Multiple R-squared:  0.4193,    Adjusted R-squared:  0.418
-    ... ...
 
     > model2 = lm(NO2 ~ PM2.5, data=data)
     > summary(model2)
@@ -183,7 +167,6 @@ We denote the modoel NO2 $\sim$ O3 with model1 and the modoel NO2 $\sim$ PM2.5 w
     lm(formula = NO2 ~ PM2.5, data = data)
     ... ...
     Multiple R-squared:  0.01075,   Adjusted R-squared:  0.008554 
-    ... ...
 \end{lstlisting}
 These show that the $R^2$ of model1 is 0.4193, and the $R^2$ of model2 is 0.01075 which means model1 is much better than model2.
 % --------------------------------------------------------
@@ -215,39 +198,7 @@ We denote the model NO2 $\sim$ O3 + PM2.5 with model3, and build a predict model
     Multiple R-squared:  0.516,     Adjusted R-squared:  0.5138
     F-statistic: 239.3 on 2 and 449 DF,  p-value: < 2.2e-16
 \end{lstlisting}
-The results show that the $R^2$ of model3 is 0.516 which is larger than the model1 and model2. 
-And the stars of O3 and PM2.5 both are three stars which means they both are very significant to this model.
-The prediction performance is improved by using multi variable regression forecasting model.
 
-\subsection{PM2.5}
-\begin{figure}[H]
-    \centering
-    \vspace{-0.35cm}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_qqPlot_PM25.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_crPlots_PM25.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_adjr2_PM25.pdf}
-    % \caption{}
-\end{figure}
-
-\subsection{NO2}
-\begin{figure}[H]
-    \centering
-    \vspace{-0.35cm}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_qqPlot_NO2.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_crPlots_NO2.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_adjr2_NO2.pdf}
-    % \caption{}
-\end{figure}
-
-\subsection{O3}
-\begin{figure}[H]
-    \centering
-    \vspace{-0.35cm}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_qqPlot_O3.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_crPlots_O3.pdf}
-    \includegraphics[width=0.4\linewidth]{figures/mul_reg_adjr2_O3.pdf}
-    % \caption{}
-\end{figure}
 
 
 
@@ -256,31 +207,22 @@ The prediction performance is improved by using multi variable regression foreca
 % --------------------------------------------------------
 \section{model performance and discussion of results}
 \label{sec:model performance and discussion of results}
-We can use the function "outlierTest" to find the outliers in data. The output is:
-\begin{lstlisting}
-    > outlierTest(fit_PM25)
-        rstudent unadjusted p-value Bonferroni p
-    452 8.585952         1.5164e-16   6.8539e-14
-    1   5.212401         2.8566e-07   1.2912e-04
-    > outlierTest(fit_NO2)
-        rstudent unadjusted p-value Bonferroni p
-    452 4.611271         5.2351e-06    0.0023663
-    > outlierTest(fit_O3)
-        rstudent unadjusted p-value Bonferroni p
-    452 5.543088         5.0943e-08   2.3026e-05
-\end{lstlisting}
 
-
-
-Then, we delete the outliers and make regression again, the model performance will be better.
+The results show that the $R^2$ of model3 is 0.516 which is larger than the model1 and model2. Also, the adjusted R-squared shows the same results.
+From code in section 4, line 17, the number of stars represent the significance of the group of data to the model.
+And the stars of O3 and PM2.5 both are three stars which means they both are very significant to this model.
+The prediction performance could be improved by using multi variable regression forecasting model. For the current model, several ways could be chosen to improve accuracy of the prediction. For example adding temperature and humidity data to linear regression could be a possible option to optimize the model. 
+Moreover, adding different weights to various variables is also a good way to optimize the model.
 
 
 % --------------------------------------------------------
 % Section 6: Conclusions
 % --------------------------------------------------------
 \section{Conclusions}
-    
-\newpage
+    In conclusion, the analysis and comparison of the NO2, O3 and PM2.5 data by using R show that NO2 is positively associated with PM2.5 and negatively associated with O3. The $R^2$ of the multivariate regression model is closer to 1 than that of the single-variable regression model when both PM2.5 and O3 are used as independent variables of NO2. Hence, the regression equation fitted by the multivariate regression model is better than the single-variable regression equation, and its performance is also better, and the final forecasting results are more accurate by using multivariate regression. Several options that could improve better results are mentioned above and the combination of them with multivariate regression could produce more accurate forecasting trend of data.
+
+
+
 \bibliographystyle{IEEEtran}
 \bibliography{References}
 
